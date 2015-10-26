@@ -19,7 +19,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import AnonymousUser
 
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext, get_language, activate
@@ -370,7 +370,7 @@ class ObservedItem(models.Model):
 
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
-    observed_object = generic.GenericForeignKey('content_type', 'object_id')
+    observed_object = GenericForeignKey('content_type', 'object_id')
 
     notice_type = models.ForeignKey(NoticeType, verbose_name=_('notice type'))
 

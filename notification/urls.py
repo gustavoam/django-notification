@@ -1,6 +1,7 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url
 
 from notification.views import notices, mark_all_seen, feed_for_user, single
+
 
 urlpatterns = patterns('',
     url(r'^$', notices, name="notification_notices"),
